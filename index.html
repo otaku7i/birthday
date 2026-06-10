@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Akshara ✦</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+.page{width:100%;min-height:600px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#2a0020 0%,#6a0a40 20%,#c0206a 45%,#e05010 70%,#f09020 88%,#f8c030 100%);position:relative;overflow:hidden;}
+#surprisePage{padding:3rem 1rem;text-align:center;}
+#mainPage{display:none;padding:2rem 1rem 3rem;text-align:center;}
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(55px);}
+.orb1{width:350px;height:350px;background:radial-gradient(circle,rgba(255,80,160,0.3),transparent 70%);top:-80px;left:-80px;}
+.orb2{width:300px;height:300px;background:radial-gradient(circle,rgba(255,200,50,0.2),transparent 70%);bottom:-60px;right:-60px;}
+.orb3{width:220px;height:220px;background:radial-gradient(circle,rgba(255,60,120,0.2),transparent 70%);top:35%;right:10%;}
+.hint{font-family:'Lato',sans-serif;font-weight:300;font-size:12px;letter-spacing:4px;color:#ffd0e8;text-transform:uppercase;margin-bottom:2rem;animation:pulse 2s ease infinite;}
+.sub-hint{font-family:'Lato',sans-serif;font-weight:300;font-size:11px;letter-spacing:3px;color:#ffaad0;text-transform:uppercase;margin-top:1.2rem;animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.candle-group{cursor:pointer;}
+.flame-outer,.flame-inner{transition:opacity 0.4s ease;}
+.smoke-line{opacity:0;transition:opacity 0.5s ease;}
+.top-line{font-family:'Lato',sans-serif;font-weight:300;font-size:12px;letter-spacing:4px;color:#ffd0e8;text-transform:uppercase;margin-bottom:0.5rem;opacity:0;animation:fadeUp 1s ease forwards 0.2s;}
+.main-name{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,7vw,4rem);font-weight:600;color:#fff;line-height:1.1;margin-bottom:0.3rem;opacity:0;animation:fadeUp 1s ease forwards 0.5s;text-shadow:0 2px 24px rgba(255,80,160,0.5);}
+.main-name span{color:#ffe060;font-style:italic;}
+.birthday-label{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.3rem);color:#ffc8e0;margin-bottom:2rem;opacity:0;animation:fadeUp 1s ease forwards 0.8s;}
+.divider{display:flex;align-items:center;gap:12px;margin:0 auto 1.5rem;width:80%;opacity:0;animation:fadeUp 1s ease forwards 1s;}
+.divider-line{flex:1;height:0.5px;background:linear-gradient(to right,transparent,#ff70b0,transparent);}
+.divider-dot{width:6px;height:6px;border-radius:50%;background:#ff70b0;}
+.divider.nodly{opacity:1;animation:none;}
+
+/* UPDATED PHOTOS SLIDESHOW SECTION (NO CROP & BIGGER SIZE) */
+.slideshow-wrap{width:100%;max-width:500px;margin:0 auto 1.5rem;opacity:0;animation:fadeUp 1s ease forwards 1.2s;}
+.slideshow{position:relative;width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:rgba(0,0,0,0.3);border:0.5px solid rgba(255,120,180,0.4);display:flex;align-items:center;justify-content:center;}
+.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.8s ease;padding:8px;}
+.slide.active{opacity:1;}
+.slide img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.4);}
+.slide-counter{font-family:'Lato',sans-serif;font-size:11px;color:#ff90c0;letter-spacing:2px;margin-top:6px;}
+.slide-dots{display:flex;gap:6px;justify-content:center;margin-top:8px;flex-wrap:wrap;padding:0 10px;}
+.sdot{width:6px;height:6px;border-radius:50%;background:rgba(255,120,180,0.3);transition:background 0.3s;}
+.sdot.active{background:#ff70b0;}
+
+/* 9:16 VERTICAL FORMAT VIDEO BOX */
+.video-section{width:100%;max-width:380px;margin:0 auto 1.5rem;opacity:0;animation:fadeUp 1s ease forwards 1.35s;}
+.video-label-row{display:flex;align-items:center;gap:10px;margin-bottom:0.8rem;justify-content:center;}
+.video-section-label{font-family:'Lato',sans-serif;font-size:11px;letter-spacing:3px;color:#ffd0e8;text-transform:uppercase;}
+.video-box{position:relative;width:100%;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:rgba(0,0,0,0.25);border:0.5px solid rgba(255,120,180,0.35);display:flex;align-items:center;justify-content:center;}
+.video-box video{width:100%;height:100%;object-fit:cover;border-radius:16px;background-color:#000;}
+
+.message-card{background:rgba(0,0,0,0.18);border:0.5px solid rgba(255,120,180,0.25);border-radius:16px;padding:1.5rem;margin:0 auto 1.5rem;max-width:500px;opacity:0;animation:fadeUp 1s ease forwards 1.55s;backdrop-filter:blur(6px);}
+.message-text{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(0.9rem,2.2vw,1.05rem);color:#ffe8f0;line-height:1.9;}
+.message-text .hl{color:#ffe060;font-style:normal;font-weight:600;}
+.from-section{opacity:0;animation:fadeUp 1s ease forwards 1.8s;margin-bottom:1.5rem;}
+.from-text{font-family:'Playfair Display',serif;font-style:italic;color:#ffc8e0;font-size:0.9rem;}
+.from-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:#ffe060;margin-top:4px;}
+.celebrate-btn{background:rgba(255,100,170,0.2);border:0.5px solid #ff70b0;border-radius:50px;color:#ffc8e0;font-family:'Lato',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;padding:0.7rem 2rem;cursor:pointer;opacity:0;animation:fadeUp 1s ease forwards 2.1s;transition:background 0.2s;}
+.celebrate-btn:hover{background:rgba(255,100,170,0.35);}
+.confetti-piece{position:fixed;pointer-events:none;z-index:999;border-radius:2px;animation:cfall 3s ease-in forwards;}
+@keyframes cfall{0%{transform:translateY(0) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+.petal{position:fixed;width:7px;height:10px;border-radius:50% 50% 50% 0;opacity:0;pointer-events:none;animation:pfall linear infinite;}
+@keyframes pfall{0%{transform:translateY(-20px) rotate(0deg);opacity:0.8;}100%{transform:translateY(110vh) rotate(360deg);opacity:0;}}
+.music-bar{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:1rem;opacity:0;animation:fadeUp 1s ease forwards 0.1s;}
+.music-label{font-family:'Lato',sans-serif;font-size:11px;letter-spacing:2px;color:#ff90c0;text-transform:uppercase;}
+.music-btn{background:rgba(255,100,170,0.15);border:0.5px solid rgba(255,120,180,0.4);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#ffc8e0;font-size:14px;transition:background 0.2s;}
+.music-btn:hover{background:rgba(255,100,170,0.3);}
+.candles-hint{font-family:'Lato',sans-serif;font-size:11px;letter-spacing:3px;color:#ffaad0;text-transform:uppercase;margin-top:0.8rem;animation:pulse 2s ease infinite;}
+</style>
+</head>
+<body>
+
+<div class="page" id="surprisePage">
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <p class="hint">— a birthday surprise awaits —</p>
+  <svg width="280" height="300" viewBox="0 0 280 300" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="cb" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#801040"/><stop offset="100%" stop-color="#3a0520"/></radialGradient>
+      <radialGradient id="cm" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#c02060"/><stop offset="100%" stop-color="#700830"/></radialGradient>
+      <radialGradient id="ct" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#e04080"/><stop offset="100%" stop-color="#a01850"/></radialGradient>
+      <radialGradient id="ft" cx="50%" cy="100%" r="80%"><stop offset="0%" stop-color="#ffe0f0"/><stop offset="100%" stop-color="#ffb0d0"/></radialGradient>
+    </defs>
+    <rect x="20" y="210" width="240" height="70" rx="8" fill="url(#cb)"/>
+    <ellipse cx="140" cy="210" rx="120" ry="12" fill="#a01850"/>
+    <ellipse cx="140" cy="280" rx="120" ry="12" fill="#200510"/>
+    <text x="140" y="252" text-anchor="middle" font-family="Playfair Display,serif" font-style="italic" font-size="13" fill="#ffb0d0" opacity="0.9">Happy Birthday</text>
+    <rect x="40" y="150" width="200" height="65" rx="8" fill="url(#cm)"/>
+    <ellipse cx="140" cy="150" rx="100" ry="10" fill="#d03070"/>
+    <ellipse cx="140" cy="215" rx="100" ry="10" fill="#4a0825"/>
+    <circle cx="80" cy="182" r="5" fill="#ff80c0" opacity="0.6"/>
+    <circle cx="140" cy="180" r="5" fill="#ffe060" opacity="0.6"/>
+    <circle cx="200" cy="182" r="5" fill="#ff80c0" opacity="0.6"/>
+    <rect x="60" y="100" width="160" height="55" rx="8" fill="url(#ct)"/>
+    <ellipse cx="140" cy="100" rx="80" ry="9" fill="url(#ft)"/>
+    <path d="M60 100 Q80 88 100 100 Q120 88 140 100 Q160 88 180 100 Q200 88 220 100" fill="none" stroke="#ffe0f0" stroke-width="2.5"/>
+    <ellipse cx="140" cy="155" rx="80" ry="9" fill="#4a0825"/>
+    <text x="140" y="133" text-anchor="middle" font-family="Playfair Display,serif" font-style="italic" font-size="12" fill="#fff0f6" opacity="0.95">Akshara</text>
+    <g class="candle-group" id="c1" onclick="blowCandle(0)">
+      <rect x="88" y="72" width="10" height="28" rx="3" fill="#ff80c0"/>
+      <ellipse class="flame-outer" id="fo0" cx="93" cy="60" rx="7" ry="11" fill="#ffaa00" opacity="0.9"/>
+      <ellipse class="flame-inner" id="fi0" cx="93" cy="62" rx="4" ry="7" fill="#fff4aa"/>
+      <line class="smoke-line" id="sm0" x1="93" y1="49" x2="93" y2="35" stroke="#ffd0e8" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;1,0;-1,0;0,0" dur="0.8s" repeatCount="indefinite"/>
+    </g>
+    <g class="candle-group" id="c2" onclick="blowCandle(1)">
+      <rect x="115" y="65" width="10" height="35" rx="3" fill="#ffe060"/>
+      <ellipse class="flame-outer" id="fo1" cx="120" cy="53" rx="7" ry="11" fill="#ff8800" opacity="0.9"/>
+      <ellipse class="flame-inner" id="fi1" cx="120" cy="55" rx="4" ry="7" fill="#ffeeaa"/>
+      <line class="smoke-line" id="sm1" x1="120" y1="42" x2="120" y2="28" stroke="#ffd0e8" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;-1,0;1,0;0,0" dur="0.9s" repeatCount="indefinite"/>
+    </g>
+    <g class="candle-group" id="c3" onclick="blowCandle(2)">
+      <rect x="143" y="65" width="10" height="35" rx="3" fill="#ff60a0"/>
+      <ellipse class="flame-outer" id="fo2" cx="148" cy="53" rx="7" ry="11" fill="#ffaa00" opacity="0.9"/>
+      <ellipse class="flame-inner" id="fi2" cx="148" cy="55" rx="4" ry="7" fill="#fff4aa"/>
+      <line class="smoke-line" id="sm2" x1="148" y1="42" x2="148" y2="28" stroke="#ffd0e8" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;1,0;-1,0;0,0" dur="1s" repeatCount="indefinite"/>
+    </g>
+    <g class="candle-group" id="c4" onclick="blowCandle(3)">
+      <rect x="171" y="72" width="10" height="28" rx="3" fill="#ff80c0"/>
+      <ellipse class="flame-outer" id="fo3" cx="176" cy="60" rx="7" ry="11" fill="#ff8800" opacity="0.9"/>
+      <ellipse class="flame-inner" id="fi3" cx="176" cy="62" rx="4" ry="7" fill="#ffeeaa"/>
+      <line class="smoke-line" id="sm3" x1="176" y1="49" x2="176" y2="35" stroke="#ffd0e8" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0;-1,0;1,0;0,0" dur="0.7s" repeatCount="indefinite"/>
+    </g>
+    <ellipse cx="140" cy="292" rx="115" ry="8" fill="#150208" opacity="0.5"/>
+  </svg>
+  <p class="candles-hint" id="candlesHint">tap each candle to blow it out</p>
+  <p class="sub-hint" id="subHint" style="display:none;">all candles out — opening surprise...</p>
+</div>
+
+<div class="page" id="mainPage">
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div id="petalsBg"></div>
+  <div style="width:100%;max-width:520px;position:relative;z-index:1;">
+    <p class="top-line">a message from the heart</p>
+    <h1 class="main-name">Happy Birthday,<br><span>Akshara</span></h1>
+    <p class="birthday-label">15th June — your most special day ✦</p>
+    <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    
+    <div class="slideshow-wrap">
+      <div class="slideshow" id="slideshow">
+        <div class="slide active"><img src="1.jpg" alt="Akshara 1"></div>
+        <div class="slide"><img src="2.jpg" alt="Akshara 2"></div>
+        <div class="slide"><img src="3.jpg" alt="Akshara 3"></div>
+        <div class="slide"><img src="4.jpg" alt="Akshara 4"></div>
+        <div class="slide"><img src="5.jpg" alt="Akshara 5"></div>
+        <div class="slide"><img src="6.jpg" alt="Akshara 6"></div>
+        <div class="slide"><img src="7.jpg" alt="Akshara 7"></div>
+        <div class="slide"><img src="8.jpg" alt="Akshara 8"></div>
+        <div class="slide"><img src="9.jpg" alt="Akshara 9"></div>
+        <div class="slide"><img src="10.jpg" alt="Akshara 10"></div>
+        <div class="slide"><img src="11.jpg" alt="Akshara 11"></div>
+        <div class="slide"><img src="12.jpg" alt="Akshara 12"></div>
+      </div>
+      <div class="slide-dots" id="slideDots"></div>
+      <div style="margin-top:10px;display:flex;align-items:center;justify-content:center;gap:10px;">
+        <span class="slide-counter" id="slideCounter"></span>
+      </div>
+    </div>
+    
+    <div class="divider nodly"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    
+    <div class="video-section">
+      <div class="video-label-row"><span class="video-section-label">✦ a special video ✦</span></div>
+      <div class="video-box" id="videoBox">
+        <video id="videoPlayer" src="vid.mp4" controls playsinline onplay="pauseBackgroundMusic()"></video>
+      </div>
+    </div>
+    
+    <div class="divider nodly"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    
+    <div class="message-card">
+      <p class="message-text">
+        My dearest <span class="hl">Apsara ji❤️</span>,<br><br>
+        Every day with you feels like the universe decided to be kind to me.
+        On this beautiful day, I want you to know that you are
+        <span class="hl">deeply loved</span> — not just today,
+        but in every moment of every day.<br><br>
+        <span class="hl">GauriShankar Bhagwan💖</span> iss janamdin apki zindagi main khushiyan hi khusiyan bhar de.<br><br>
+        <span class="hl">Forever yours — Abhi 🌹</span>
+      </p>
+    </div>
+    
+    <div class="music-bar">
+      <span class="music-label" id="musicLabel">Our Special Track 🌸</span>
+      <div class="music-btn" id="playBtn" onclick="toggleMusic()"><span id="playIcon">▶</span></div>
+    </div>
+    
+    <div class="from-section">
+      <p class="from-text">with all the love in the world, from</p>
+      <p class="from-name">Abhi 💕</p>
+    </div>
+    <button class="celebrate-btn" onclick="launchConfetti()">celebrate ✦</button>
+  </div>
+</div>
+
+<script>
+var blown=[false,false,false,false],audio=null,currentSlide=0,slideTimer=null;
+var songPath = "hp.mp3"; 
+
+window.addEventListener('load', function() {
+  audio = new Audio(songPath);
+  audio.loop = true;
+  
+  startSlideshow();
+  renderDots();
+  updateCounter();
+});
+
+function blowCandle(i){
+  if(blown[i])return;blown[i]=true;
+  document.getElementById('fo'+i).style.opacity='0';
+  document.getElementById('fi'+i).style.opacity='0';
+  var sm=document.getElementById('sm'+i);sm.style.opacity='1';
+  setTimeout(function(){sm.style.opacity='0';},1200);
+  document.getElementById('c'+(i+1)).style.cursor='default';
+  if(blown.every(function(b){return b;})){
+    document.getElementById('candlesHint').style.display='none';
+    document.getElementById('subHint').style.display='block';
+    setTimeout(openMain,1400);
+  }
+}
+
+function openMain(){
+  document.getElementById('surprisePage').style.display='none';
+  document.getElementById('mainPage').style.display='flex';
+  spawnPetals();launchConfetti();
+  
+  if(audio){
+    audio.play().then(function() {
+      document.getElementById('playIcon').textContent='⏸';
+    }).catch(function(e){
+      console.log("Audio autoplay blocked. Tap play button if needed.");
+    });
+  }
+}
+
+function pauseBackgroundMusic() {
+  if(audio && !audio.paused) {
+    audio.pause();
+    document.getElementById('playIcon').textContent='▶';
+  }
+}
+
+function spawnPetals(){
+  var c=document.getElementById('petalsBg');
+  var cols=['#ff80c0','#ff60a0','#ffb0d0','#ffe060','#ff90b0','#fff','#ffcce8','#ffaa00'];
+  for(var i=0;i<22;i++){
+    var p=document.createElement('div');p.className='petal';
+    p.style.left=(Math.random()*100)+'%';
+    p.style.animationDuration=(5+Math.random()*6)+'s';
+    p.style.animationDelay=(Math.random()*8)+'s';
+    p.style.background=cols[Math.floor(Math.random()*cols.length)];
+    c.appendChild(p);
+  }
+}
+
+function getSlides() {
+  return document.querySelectorAll('#slideshow .slide');
+}
+
+function renderDots(){
+  var slidesCount = getSlides().length;
+  var d=document.getElementById('slideDots');d.innerHTML='';
+  for(var i=0;i<slidesCount;i++){var dot=document.createElement('div');dot.className='sdot'+(i===currentSlide?' active':'');d.appendChild(dot);}
+}
+
+function updateCounter(){
+  var slidesCount = getSlides().length;
+  document.getElementById('slideCounter').textContent=slidesCount>0?(slidesCount+' photos loaded 📸'):'';
+}
+
+function showSlide(idx){
+  var all=getSlides();
+  if(all.length === 0) return;
+  all.forEach(function(s){s.classList.remove('active');});
+  if(all[idx])all[idx].classList.add('active');
+  currentSlide=idx;renderDots();
+}
+
+function startSlideshow(){
+  if(slideTimer)clearInterval(slideTimer);
+  slideTimer=setInterval(function(){
+    var slidesCount = getSlides().length;
+    if(slidesCount<2)return;
+    showSlide((currentSlide+1)%slidesCount);
+  },3000);
+}
+
+function toggleMusic(){
+  if(!audio)return;
+  if(audio.paused){
+    var vp = document.getElementById('videoPlayer');
+    if(vp) vp.pause();
+    audio.play();
+    document.getElementById('playIcon').textContent='⏸';
+  }
+  else{
+    audio.pause();
+    document.getElementById('playIcon').textContent='▶';
+  }
+}
+
+function launchConfetti(){
+  var cols=['#ff80c0','#ff60a0','#ffb0d0','#ffe060','#fff','#ffcce8','#ffaa00','#ff40a0','#ffd0e8'];
+  for(var i=0;i<100;i++){
+    (function(i){setTimeout(function(){
+      var c=document.createElement('div');c.className='confetti-piece';
+      c.style.left=(Math.random()*100)+'vw';c.style.top='-10px';
+      c.style.background=cols[Math.floor(Math.random()*cols.length)];
+      c.style.borderRadius=Math.random()>0.5?'50%':'2px';
+      c.style.width=(6+Math.random()*8)+'px';c.style.height=(6+Math.random()*8)+'px';
+      c.style.animationDuration=(2+Math.random()*2)+'s';
+      document.body.appendChild(c);setTimeout(function(){c.remove();},4000);
+    },i*22);})(i);
+  }
+}
+</script>
+</body>
+</html>
