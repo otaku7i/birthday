@@ -30,8 +30,33 @@
 .divider-dot{width:6px;height:6px;border-radius:50%;background:#ff70b0;}
 .divider.nodly{opacity:1;animation:none;}
 
-/* UPDATED PHOTOS SLIDESHOW SECTION (NO CROP & BIGGER SIZE) */
-.slideshow-wrap{width:100%;max-width:500px;margin:0 auto 1.5rem;opacity:0;animation:fadeUp 1s ease forwards 1.2s;}
+/* SMART SLIDESHOW & GIF ROW (DESKTOP / LAPTOP) */
+.slideshow-row-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto 1.5rem;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 1.2s;
+}
+.side-gif {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 0.5px solid rgba(255, 120, 180, 0.2);
+  padding: 4px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.slideshow-wrap{
+  flex: 1;
+  max-width: 450px;
+  width: 100%;
+}
 .slideshow{position:relative;width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:rgba(0,0,0,0.3);border:0.5px solid rgba(255,120,180,0.4);display:flex;align-items:center;justify-content:center;}
 .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.8s ease;padding:8px;}
 .slide.active{opacity:1;}
@@ -40,6 +65,39 @@
 .slide-dots{display:flex;gap:6px;justify-content:center;margin-top:8px;flex-wrap:wrap;padding:0 10px;}
 .sdot{width:6px;height:6px;border-radius:50%;background:rgba(255,120,180,0.3);transition:background 0.3s;}
 .sdot.active{background:#ff70b0;}
+
+/* MOBILE SPECIFIC OPTIMIZATION FOR MAIN PAGE */
+@media (max-width: 768px) {
+  .slideshow-row-container {
+    display: flex;
+    flex-direction: column; /* Stacks vertically */
+    gap: 15px;
+  }
+  .slideshow-wrap {
+    width: 100%;
+    max-width: 92vw;
+  }
+  /* Mobile Bottom Row for both GIFs to sit side-by-side */
+  .mobile-gif-row {
+    display: flex !important;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+  }
+  /* Hide the default desktop side wrappers on mobile */
+  .desktop-gif-wrap {
+    display: none !important;
+  }
+  .side-gif {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* Fallback helper for Desktop view */
+.mobile-gif-row {
+  display: none;
+}
 
 /* 9:16 VERTICAL FORMAT VIDEO BOX */
 .video-section{width:100%;max-width:380px;margin:0 auto 1.5rem;opacity:0;animation:fadeUp 1s ease forwards 1.35s;}
@@ -137,24 +195,39 @@
     <p class="birthday-label">15th June — your most special day ✦</p>
     <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
     
-    <div class="slideshow-wrap">
-      <div class="slideshow" id="slideshow">
-        <div class="slide active"><img src="1.jpg" alt="Akshara 1"></div>
-        <div class="slide"><img src="2.jpg" alt="Akshara 2"></div>
-        <div class="slide"><img src="3.jpg" alt="Akshara 3"></div>
-        <div class="slide"><img src="4.jpg" alt="Akshara 4"></div>
-        <div class="slide"><img src="5.jpg" alt="Akshara 5"></div>
-        <div class="slide"><img src="6.jpg" alt="Akshara 6"></div>
-        <div class="slide"><img src="7.jpg" alt="Akshara 7"></div>
-        <div class="slide"><img src="8.jpg" alt="Akshara 8"></div>
-        <div class="slide"><img src="9.jpg" alt="Akshara 9"></div>
-        <div class="slide"><img src="10.jpg" alt="Akshara 10"></div>
-        <div class="slide"><img src="11.jpg" alt="Akshara 11"></div>
-        <div class="slide"><img src="12.jpg" alt="Akshara 12"></div>
+    <div class="slideshow-row-container">
+      <div class="desktop-gif-wrap">
+        <img class="side-gif" src="gi1.gif" alt="Dancing Husky Left">
       </div>
-      <div class="slide-dots" id="slideDots"></div>
-      <div style="margin-top:10px;display:flex;align-items:center;justify-content:center;gap:10px;">
-        <span class="slide-counter" id="slideCounter"></span>
+      
+      <div class="slideshow-wrap">
+        <div class="slideshow" id="slideshow">
+          <div class="slide active"><img src="1.jpg" alt="Akshara 1"></div>
+          <div class="slide"><img src="2.jpg" alt="Akshara 2"></div>
+          <div class="slide"><img src="3.jpg" alt="Akshara 3"></div>
+          <div class="slide"><img src="4.jpg" alt="Akshara 4"></div>
+          <div class="slide"><img src="5.jpg" alt="Akshara 5"></div>
+          <div class="slide"><img src="6.jpg" alt="Akshara 6"></div>
+          <div class="slide"><img src="7.jpg" alt="Akshara 7"></div>
+          <div class="slide"><img src="8.jpg" alt="Akshara 8"></div>
+          <div class="slide"><img src="9.jpg" alt="Akshara 9"></div>
+          <div class="slide"><img src="10.jpg" alt="Akshara 10"></div>
+          <div class="slide"><img src="11.jpg" alt="Akshara 11"></div>
+          <div class="slide"><img src="12.jpg" alt="Akshara 12"></div>
+        </div>
+        <div class="slide-dots" id="slideDots"></div>
+        <div style="margin-top:10px;display:flex;align-items:center;justify-content:center;gap:10px;">
+          <span class="slide-counter" id="slideCounter"></span>
+        </div>
+      </div>
+      
+      <div class="desktop-gif-wrap">
+        <img class="side-gif" src="gi2.gif" alt="Dancing Husky Right">
+      </div>
+
+      <div class="mobile-gif-row">
+        <img class="side-gif" src="giphy.gif" alt="Dancing Husky Left">
+        <img class="side-gif" src="200w.gif" alt="Dancing Husky Right">
       </div>
     </div>
     
