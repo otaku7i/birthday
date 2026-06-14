@@ -30,7 +30,7 @@
 .divider-dot{width:6px;height:6px;border-radius:50%;background:#ff70b0;}
 .divider.nodly{opacity:1;animation:none;}
 
-/* SMART SLIDESHOW & GIF ROW (DESKTOP / LAPTOP) */
+/* CLEAN RE-ARRANGEABLE ROW/COLUMN CONTAINER */
 .slideshow-row-container {
   display: flex;
   align-items: center;
@@ -53,7 +53,6 @@
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 .slideshow-wrap{
-  flex: 1;
   max-width: 450px;
   width: 100%;
 }
@@ -66,37 +65,37 @@
 .sdot{width:6px;height:6px;border-radius:50%;background:rgba(255,120,180,0.3);transition:background 0.3s;}
 .sdot.active{background:#ff70b0;}
 
-/* MOBILE SPECIFIC OPTIMIZATION FOR MAIN PAGE */
+/* MOBILE CLEAN LAYOUT - NO HIDE HACKS */
 @media (max-width: 768px) {
   .slideshow-row-container {
-    display: flex;
-    flex-direction: column; /* Stacks vertically */
+    flex-direction: column; /* Vertical alignment on phones */
     gap: 15px;
   }
   .slideshow-wrap {
-    width: 100%;
+    order: 1; /* Slideshow strictly on top */
     max-width: 92vw;
   }
-  /* Mobile Bottom Row for both GIFs to sit side-by-side */
-  .mobile-gif-row {
-    display: flex !important;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
+  .gif-container-left {
+    order: 2; /* Left Husky goes under photo */
+    display: inline-block !important;
   }
-  /* Hide the default desktop side wrappers on mobile */
-  .desktop-gif-wrap {
-    display: none !important;
+  .gif-container-right {
+    order: 3; /* Right Husky sits beside the left one */
+    display: inline-block !important;
+  }
+  /* Modifying the flex flow to make huskies sit side-by-side on mobile */
+  .slideshow-row-container {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .slideshow-wrap {
+    width: 100%;
+    flex-basis: 100%; /* Force photo to take its full row */
   }
   .side-gif {
     width: 110px;
     height: 110px;
   }
-}
-
-/* Fallback helper for Desktop view */
-.mobile-gif-row {
-  display: none;
 }
 
 /* 9:16 VERTICAL FORMAT VIDEO BOX */
@@ -196,7 +195,8 @@
     <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
     
     <div class="slideshow-row-container">
-      <div class="desktop-gif-wrap">
+      
+      <div class="gif-container-left">
         <img class="side-gif" src="gi1.gif" alt="Dancing Husky Left">
       </div>
       
@@ -221,14 +221,10 @@
         </div>
       </div>
       
-      <div class="desktop-gif-wrap">
+      <div class="gif-container-right">
         <img class="side-gif" src="gi2.gif" alt="Dancing Husky Right">
       </div>
 
-      <div class="mobile-gif-row">
-        <img class="side-gif" src="giphy.gif" alt="Dancing Husky Left">
-        <img class="side-gif" src="200w.gif" alt="Dancing Husky Right">
-      </div>
     </div>
     
     <div class="divider nodly"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
@@ -359,6 +355,11 @@ function startSlideshow(){
     showSlide((currentSlide+1)%slidesCount);
   },3000);
 }
+
+// Ensure background music pauses when video plays
+document.getElementById('videoPlayer').addEventListener('play', function() {
+  pauseBackgroundMusic();
+});
 
 function toggleMusic(){
   if(!audio)return;
